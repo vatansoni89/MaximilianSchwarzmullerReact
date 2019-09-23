@@ -44,3 +44,11 @@ We'll of course dive into the difference throughout this course, you can already
 component benefit:
   reusable: define once use multiple time.
   custom html component.
+
+state:
+  its a special property. (reserved word. )
+  only available in class which extends component.
+  if it changes it will lead react to update the dom and re-render.
+
+switchNameHandler:
+  don't add () in button onClick prop.  
