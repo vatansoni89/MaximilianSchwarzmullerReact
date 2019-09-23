@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person.js";
+import person from "./Person/Person.js";
 
 class App extends Component {
   state = {
@@ -52,23 +53,9 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
-            click={this.switchNameHandler.bind(this, "Paragraph_Name")}
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age}
-          >
-            My hobbie: Badminton
-          </Person>
-          <Person
-            click={() => this.switchNameHandler("By-Function-Call")}
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-            changed={this.nameChangedHandler}
-          />
-          <Person
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age}
-          />
+          {this.state.persons.map(p => {
+            return <Person name={p.name} age={p.age} />;
+          })}
         </div>
       );
     }

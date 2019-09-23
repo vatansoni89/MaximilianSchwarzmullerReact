@@ -57,7 +57,7 @@ ReactHook:
   use:
     useState({})
       [0]: state object
-      [1]: fun to change state object, and it replaces the old with new. If old hv 2 props and new have 1 then both will be replaced by 1.
+      [1]: fun to change state object, and it replaces the old with new. If old hv 2 props and new have 1 then both will be replaced by 1. To avoid it use replacing specific prop {specificProp: value}
 
 container or Stateful or Smart component are same.      
 
