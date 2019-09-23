@@ -52,3 +52,11 @@ state:
 
 switchNameHandler:
   don't add () in button onClick prop.  
+
+ReactHook:
+  use:
+    useState({})
+      [0]: state object
+      [1]: fun to change state object, and it replaces the old with new. If old hv 2 props and new have 1 then both will be replaced by 1.
+
+container or Stateful or Smart component are same.      
