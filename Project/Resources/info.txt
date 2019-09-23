@@ -68,3 +68,7 @@ click={() => this.switchNameHandler("By-Function-Call")}
 
 .net core 3: https://www.youtube.com/watch?v=W8yL8vRnUnA
 
+don't mutate the original state, create and copy and update and set that.
+
+list
+  key: need to be unique, need not to be a number.

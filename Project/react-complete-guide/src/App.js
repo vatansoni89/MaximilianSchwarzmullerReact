@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person.js";
-import person from "./Person/Person.js";
 
 class App extends Component {
   state = {
     persons: [
-      { name: "Vatan", age: 30 },
-      { name: "Sonu", age: 28 },
-      { name: "Raju", age: 26 }
+      { id: "asaas", name: "Vatan", age: 30 },
+      { id: "asarfsa", name: "Sonu", age: 28 },
+      { id: "asujjasa", name: "Raju", age: 26 }
     ],
     showPersons: false
   };
@@ -39,6 +38,14 @@ class App extends Component {
     this.setState({ showPersons: !doesShow }); //only showPerson will be updated with this syntex.
   };
 
+  deletePersonHandler = index => {
+    debugger;
+    //don't mutate the original state, create and copy and update and set that.
+    const persons = [...this.state.persons];
+    persons.splice(index, 1); //delete 1 element from given index
+    this.setState({ persons: persons });
+  };
+
   render() {
     const style = {
       backgroundColor: "white",
@@ -53,8 +60,15 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map(p => {
-            return <Person name={p.name} age={p.age} />;
+          {this.state.persons.map((p, index) => {
+            return (
+              <Person
+                click={() => this.deletePersonHandler(index)}
+                name={p.name}
+                age={p.age}
+                key={p.id}
+              />
+            );
           })}
         </div>
       );
