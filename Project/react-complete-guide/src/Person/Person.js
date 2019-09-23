@@ -1,5 +1,5 @@
 import React from "react";
-import "../Person/Person.css";
+import "./Person.css";
 
 //give lower case for fun variable.
 const person = props => {

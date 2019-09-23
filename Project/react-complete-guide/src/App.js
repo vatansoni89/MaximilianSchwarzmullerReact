@@ -8,7 +8,8 @@ class App extends Component {
       { name: "Vatan", age: 30 },
       { name: "Sonu", age: 28 },
       { name: "Raju", age: 26 }
-    ]
+    ],
+    showPersons: false
   };
 
   switchNameHandler = newName => {
@@ -32,6 +33,11 @@ class App extends Component {
     });
   };
 
+  togglePersonshandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({ showPersons: !doesShow }); //only showPerson will be updated with this syntex.
+  };
+
   render() {
     const style = {
       backgroundColor: "white",
@@ -40,33 +46,41 @@ class App extends Component {
       padding: "8px",
       cursor: "pointer"
     };
+
+    let persons = null;
+
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person
+            click={this.switchNameHandler.bind(this, "Paragraph_Name")}
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}
+          >
+            My hobbie: Badminton
+          </Person>
+          <Person
+            click={() => this.switchNameHandler("By-Function-Call")}
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            changed={this.nameChangedHandler}
+          />
+          <Person
+            name={this.state.persons[2].name}
+            age={this.state.persons[2].age}
+          />
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1>Hii</h1>
         <p>working!</p>
-        <button
-          onClick={this.switchNameHandler.bind(this, "Btn_Name")}
-          style={style}
-        >
-          Switch Name
+        <button onClick={this.togglePersonshandler} style={style}>
+          Toggle Persons
         </button>
-        <Person
-          click={this.switchNameHandler.bind(this, "Paragraph_Name")}
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-        >
-          My hobbie: Badminton
-        </Person>
-        <Person
-          click={() => this.switchNameHandler("By-Function-Call")}
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          changed={this.nameChangedHandler}
-        />
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-        />
+        {persons}
       </div>
     );
   }

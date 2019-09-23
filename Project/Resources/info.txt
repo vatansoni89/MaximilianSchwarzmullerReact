@@ -65,3 +65,6 @@ click={() => this.switchNameHandler("By-Function-Call")}
   () => this.switchNameHandler("By-Function-Call")
     It returns function call, and executes on click only (not immediate)
       This can be in-efficient.
+
+.net core 3: https://www.youtube.com/watch?v=W8yL8vRnUnA
+
