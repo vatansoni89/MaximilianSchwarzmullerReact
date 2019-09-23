@@ -60,3 +60,8 @@ ReactHook:
       [1]: fun to change state object, and it replaces the old with new. If old hv 2 props and new have 1 then both will be replaced by 1.
 
 container or Stateful or Smart component are same.      
+
+click={() => this.switchNameHandler("By-Function-Call")}
+  () => this.switchNameHandler("By-Function-Call")
+    It returns function call, and executes on click only (not immediate)
+      This can be in-efficient.
