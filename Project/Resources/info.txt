@@ -72,3 +72,6 @@ don't mutate the original state, create and copy and update and set that.
 
 list
   key: need to be unique, need not to be a number.
+
+nameChangedHandler with 2way binding:
+  Get person by id and update copy of that. Then create copy of list and update this person there and set state again.
