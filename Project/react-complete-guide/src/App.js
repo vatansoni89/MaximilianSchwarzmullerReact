@@ -70,6 +70,8 @@ class App extends Component {
       persons = (
         <div>
           {this.state.persons.map((p, index) => {
+            //index auto-generated 0,1,2...
+            console.log("person index", index);
             return (
               <Person
                 click={() => this.deletePersonHandler(index)}

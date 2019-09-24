@@ -75,3 +75,4 @@ list
 
 nameChangedHandler with 2way binding:
   Get person by id and update copy of that. Then create copy of list and update this person there and set state again.
+  index auto-generated 0,1,2...
