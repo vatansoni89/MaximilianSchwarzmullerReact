@@ -1,5 +1,6 @@
 import React from "react";
 import "./Person.css";
+import Radium from "radium";
 
 //give lower case for fun variable.
 const person = props => {
@@ -14,4 +15,4 @@ const person = props => {
   );
 };
 
-export default person;
+export default Radium(person);
