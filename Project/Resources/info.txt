@@ -78,6 +78,7 @@ nameChangedHandler with 2way binding:
   index auto-generated 0,1,2...
 
 styles:
+  https://create-react-app.dev/docs/adding-a-css-modules-stylesheet (this feature is available with react-scripts@2.0.0 and higher)
   we cannt hv hover style, we need 3rd party tool for it like radium.
     npm install --save radium  (--save: to also save entry in package.json)
       it allows in-line style with sudo-selector and media quieries.
