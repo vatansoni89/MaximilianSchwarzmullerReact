@@ -1,4 +1,18 @@
-index
-  App
-    Person
+
       
+src
+  assets(F)
+  components(F)
+    Cockpit(F)
+      Cockpit.js
+    Persons(F)
+      Persons.js
+      Person(F)
+        Person.css
+        Person.js
+  containers(F)
+    App.css
+    App.js
+    App.test.js
+  index.css
+  index.js      
