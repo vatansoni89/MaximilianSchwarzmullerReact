@@ -82,3 +82,10 @@ styles:
   we cannt hv hover style, we need 3rd party tool for it like radium.
     npm install --save radium  (--save: to also save entry in package.json)
       it allows in-line style with sudo-selector and media quieries.
+
+Debugging:
+  ErrorBoundary:
+   Works only in production.
+    
+  Where did all of the DOM elements go?
+    https://reactjs.org/blog/2019/08/15/new-react-devtools.html#where-did-all-of-the-dom-elements-go

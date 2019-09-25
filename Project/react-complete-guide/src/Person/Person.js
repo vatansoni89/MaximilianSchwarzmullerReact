@@ -3,6 +3,14 @@ import "./Person.css";
 
 //give lower case for fun variable.
 const person = props => {
+  ///
+  //error catch demo
+  ///
+  const rnd = Math.random();
+  if (rnd > 0.7) {
+    throw new Error("some thing went wrong...");
+  }
+
   return (
     <div className="Person">
       <p onClick={props.click}>
