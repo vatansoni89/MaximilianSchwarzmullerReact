@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import classess from "./App.css";
 import Person from "./Person/Person.js";
-import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 class App extends Component {
   state = {
     persons: [
@@ -74,14 +73,12 @@ class App extends Component {
             //index auto-generated 0,1,2...
             console.log("person index", index);
             return (
-              <ErrorBoundary key={p.id}>
-                <Person
-                  click={() => this.deletePersonHandler(index)}
-                  name={p.name}
-                  age={p.age}
-                  changed={event => this.nameChangedHandler(event, p.id)}
-                />
-              </ErrorBoundary>
+              <Person
+                click={() => this.deletePersonHandler(index)}
+                name={p.name}
+                age={p.age}
+                changed={event => this.nameChangedHandler(event, p.id)}
+              />
             );
           })}
         </div>
