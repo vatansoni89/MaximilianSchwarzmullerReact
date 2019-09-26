@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import classess from "./App.css";
+import Cockpit from "../components/Cockpit/Cockpit";
 
 import Persons from "../components/Persons/Persons";
 class App extends Component {
@@ -78,21 +79,13 @@ class App extends Component {
       style.backgroundColor = "lightblue";
     }
 
-    const classes = [];
-    if (this.state.persons.length <= 2) {
-      classes.push("red");
-    }
-    if (this.state.persons.length <= 1) {
-      classes.push("bold");
-    }
-
     return (
       <div className="App">
-        <h1>Hii</h1>
-        <p className={classes.join(" ")}>working!</p>
-        <button onClick={this.togglePersonshandler} style={style}>
-          Toggle Persons
-        </button>
+        <Cockpit
+          persons={this.state.persons}
+          toggle={this.togglePersonshandler}
+          style={style}
+        />
         {persons}
       </div>
     );
