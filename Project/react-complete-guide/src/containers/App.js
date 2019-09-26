@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classess from "./App.css";
-import Person from "../components/Persons/Person/Person";
+
+import Persons from "../components/Persons/Persons";
 class App extends Component {
   state = {
     persons: [
@@ -68,20 +69,11 @@ class App extends Component {
 
     if (this.state.showPersons) {
       persons = (
-        <div>
-          {this.state.persons.map((p, index) => {
-            //index auto-generated 0,1,2...
-            console.log("person index", index);
-            return (
-              <Person
-                click={() => this.deletePersonHandler(index)}
-                name={p.name}
-                age={p.age}
-                changed={event => this.nameChangedHandler(event, p.id)}
-              />
-            );
-          })}
-        </div>
+        <Persons
+          persons={this.state.persons}
+          clicked={this.deletePersonHandler}
+          changed={this.nameChangedHandler}
+        />
       );
       style.backgroundColor = "lightblue";
     }
