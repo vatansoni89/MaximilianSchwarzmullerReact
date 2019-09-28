@@ -15,3 +15,8 @@ const person = props => {
 };
 
 export default person;
+
+// App:
+//   Persons:
+//     Person: This have real events like
+//       onClick, onChange

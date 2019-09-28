@@ -13,20 +13,21 @@ class App extends Component {
     showPersons: false
   };
 
-  switchNameHandler = newName => {
-    // React don't respect this ===>>> this.state.persons[0].name = "Manuuu";
-    this.setState({
-      persons: [
-        { name: newName, age: 30 },
-        { name: "Sonu", age: 28 },
-        { name: "Raju", age: 26 }
-      ]
-    });
-  };
+  // switchNameHandler = newName => {
+  //   // React don't respect this ===>>> this.state.persons[0].name = "Manuuu";
+  //   this.setState({
+  //     persons: [
+  //       { name: newName, age: 30 },
+  //       { name: "Sonu", age: 28 },
+  //       { name: "Raju", age: 26 }
+  //     ]
+  //   });
+  // };
 
   nameChangedHandler = (event, id) => {
     //Get person by id and update copy of that. Then create copy of list and update this person there and set state again.
 
+    //personIndex is array index (integer) but id is string
     const personIndex = this.state.persons.findIndex(p => p.id === id);
 
     const person = {
