@@ -1,20 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Person.css";
 
 //give lower case for fun variable.
-const person = props => {
-  return (
-    <div className="Person">
-      <p onClick={props.click}>
-        I m a Person! having name {props.name} and age {props.age}
-      </p>
-      <p>{props.children}</p>
-      <input type="text" onChange={props.changed} value={props.name} />
-    </div>
-  );
-};
+class Person extends Component {
+  componentDidUpdate() {
+    console.log("[Person.js] componentDidUpdate");
+  }
 
-export default person;
+  render() {
+    console.log("[Person.js] rendering...");
+    return (
+      <div className="Person">
+        <p onClick={this.props.click}>
+          I m a Person! having name {this.props.name} and age {this.props.age}
+        </p>
+        <p>{this.props.children}</p>
+        <input
+          type="text"
+          onChange={this.props.changed}
+          value={this.props.name}
+        />
+      </div>
+    );
+  }
+}
+
+export default Person;
 
 // App:
 //   Persons:

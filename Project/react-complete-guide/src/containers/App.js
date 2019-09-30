@@ -4,6 +4,11 @@ import Cockpit from "../components/Cockpit/Cockpit";
 
 import Persons from "../components/Persons/Persons";
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log("[App.js] constructor");
+  }
+
   state = {
     persons: [
       { id: "asaas", name: "Vatan", age: 30 },
@@ -13,16 +18,18 @@ class App extends Component {
     showPersons: false
   };
 
-  // switchNameHandler = newName => {
-  //   // React don't respect this ===>>> this.state.persons[0].name = "Manuuu";
-  //   this.setState({
-  //     persons: [
-  //       { name: newName, age: 30 },
-  //       { name: "Sonu", age: 28 },
-  //       { name: "Raju", age: 26 }
-  //     ]
-  //   });
-  // };
+  static getDerivedStateFromProps(props, state) {
+    console.log("[App.js] getDerivedStateFromProps", props);
+  }
+
+  componentDidMount() {
+    console.log("[App.js] componentDidMount");
+    console.log("Title from Index is", this.props.title);
+  }
+
+  componentDidUpdate() {
+    console.log("[App.js] componentDidUpdate");
+  }
 
   nameChangedHandler = (event, id) => {
     //Get person by id and update copy of that. Then create copy of list and update this person there and set state again.
@@ -58,6 +65,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("[App.js] render");
     const style = {
       backgroundColor: "green",
       color: "white",

@@ -89,3 +89,70 @@ Debugging:
     
   Where did all of the DOM elements go?
     https://reactjs.org/blog/2019/08/15/new-react-devtools.html#where-did-all-of-the-dom-elements-go
+
+---------------------------------------Life-Cycle------------------------------------------------------------
+
+Side-Effects: Sending http request.
+
+Component Lifecycle - Creation:
+      constructor(props): 
+        Call super(props)
+        Do: Set up StatefulDON'T: Cause Side-Effects
+      static getDerivedStateFromProps(props, state):
+        DO: Sync stateDON'T: Cause Side-Effects
+      render():
+        Prepare & structure your JSX Code
+      Render Child Components:  
+      componentDidMount():
+        DO: Cause Side-Effects
+        DON'T: Update State (triggers re-render)
+
+Component Lifecycle - Update:
+  static getDerivedStateFromProps(props, state):
+    Returns state
+    DO: Sync State to Props
+    DON'T: Cause Side-Effects
+  shouldComponentUpdate(nextProps, nextState):
+    Return bool
+    DO: Decide whether to Continue or Not
+    DON'T: Cause Side-Effects
+  render(): 
+    return jsx
+    Prepare & structure your JSX Code
+  Update Child Component props
+  getSnapshotBeforeUpdate(prevProps, prevState):
+    DO: Last- minute DOM ops
+    DON'T: Cause Side-Effects
+  componentDidUpdate(prevProps,prevState,snapshot):
+    It can use snapshot created by getSnapshotBeforeUpdate(prevProps, prevState)
+    DO: Cause Side-Effects
+    DON'T: Update State (trigger re-render)
+---------------------------------------------Class-based vs Functional Component----------------
+class-based:
+  class XY extends Component
+  Access to StateLifecycle Hooks
+  Access State and Props vis "this":
+    this.state.XY & this.props.XY
+  Use if you need to manage State or access to Lifecycle Hooks and you don't want to use React Hooks!
+
+Functional:
+  const XY = props => {...}
+  Access to State (useState())
+  Access Props via "props":
+    props.XY
+  Use in all other Cases
+-----------------------Flow------------------------------------
+
+On first time load:
+  [App.js] constructor
+  [App.js] getDerivedStateFromProps
+  [App.js] render
+  [App.js] componentDidMount
+
+On Togggle Persons Button Click:
+  [App.js] getDerivedStateFromProps
+  [App.js] render
+  [Persons.js] rendering...
+  [App.js] componentDidUpdate
+
+  ----------------------------------------------------------
