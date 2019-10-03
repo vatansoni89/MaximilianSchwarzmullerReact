@@ -155,4 +155,29 @@ On Togggle Persons Button Click:
   [Persons.js] rendering...
   [App.js] componentDidUpdate
 
-  ----------------------------------------------------------
+  --------------------------useEffect--------------------------------
+
+  ReactHooks:
+    - It can be only with functional component.
+    - Cover all the class-based lifecycle hooks.
+    - Its react hook not life-cycle hook.
+    useEffect:
+      - We can have multiple useEffect
+      - dependency array for managing them
+      
+------------------------Clean-up with Life-Cycle hooks and UseEffect-----------------
+
+ReactHooks:
+  useEffect:
+  - cleanup return function for function component (Cockpit.js)
+      It runs before the main useEffect fun runs but after the (first) render cycle.
+  - If we have empty array [] as dependency then useEffect will only execute the inner function() when component is rendered or unmounted.
+  - clean-up for class component (Persons.js):
+      componentWillUnmount()
+
+--------------------------------------------------------------------------
+
+React:
+  Optimization:
+    - for class component > shouldComponentUpdate(nextProps, nextState)
+    - for fun component > React.memo(cockpit)

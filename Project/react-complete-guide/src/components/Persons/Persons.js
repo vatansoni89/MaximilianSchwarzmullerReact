@@ -9,7 +9,31 @@ class Persons extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log("[Persons.js] shouldComponentUpdate");
-    return true;
+    //without this even Persons not got updated it will re-render persons on 'Remove Cockpit' button click
+    ///
+    //Before:
+    //[App.js] getDerivedStateFromProps {title: "Hi Title"}
+    //[App.js] render
+    //[Persons.js] shouldComponentUpdate
+    //[Person-s.js] rendering...
+    //[Person.js] rendering...
+    //[Persons.js] getSnapshotBeforeUpdate
+    //[Cockpit.js] cleanup work in useEffect
+    //Person.js] componentDidUpdate
+    //[Persons.js] componentDidUpdate
+
+    //After:
+    //[App.js] getDerivedStateFromProps {title: "Hi Title"}
+    //[App.js] render
+    //[Persons.js] shouldComponentUpdate
+    //[Cockpit.js] cleanup work in useEffect
+    //[App.js] componentDidUpdate
+
+    if (nextProps.persons !== this.props.persons) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
@@ -20,6 +44,10 @@ class Persons extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log("[Persons.js] componentDidUpdate");
     console.log(snapshot);
+  }
+
+  componentWillUnmount() {
+    console.log("[Persons.js] componentWillUnmount");
   }
 
   render() {

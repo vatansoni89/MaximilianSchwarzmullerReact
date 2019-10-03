@@ -15,7 +15,8 @@ class App extends Component {
       { id: "asarfsa", name: "Sonu", age: 28 },
       { id: "asujjasa", name: "Raju", age: 26 }
     ],
-    showPersons: false
+    showPersons: false,
+    showCockpit: true
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -88,13 +89,20 @@ class App extends Component {
       style.backgroundColor = "lightblue";
     }
 
+    //console.log("Am i running before componentWillUnmount"); //yes
+
     return (
       <div className="App">
-        <Cockpit
-          persons={this.state.persons}
-          toggle={this.togglePersonshandler}
-          style={style}
-        />
+        <button onClick={() => this.setState({ showCockpit: false })}>
+          Remove Cockpit
+        </button>
+        {this.state.showCockpit ? (
+          <Cockpit
+            personsLength={this.state.persons.length}
+            toggle={this.togglePersonshandler}
+            style={style}
+          />
+        ) : null}
         {persons}
       </div>
     );
