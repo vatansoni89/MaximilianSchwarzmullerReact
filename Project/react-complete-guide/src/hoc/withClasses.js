@@ -4,7 +4,8 @@ const withClasses = (WrappedComponent, className) => {
     props // Its mean return by default, should be used when small section need to be returned.
   ) => (
     <div className={className}>
-      <WrappedComponent />
+      {console.log("props from withClasses", props)}
+      <WrappedComponent {...props} />
     </div>
   );
 };

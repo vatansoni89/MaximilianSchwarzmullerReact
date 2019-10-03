@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./Person.css";
+import css from "./Person.css";
+import withClasses from "../../../hoc/withClasses";
 
 //give lower case for fun variable.
 class Person extends Component {
@@ -10,7 +11,7 @@ class Person extends Component {
   render() {
     console.log("[Person.js] rendering...");
     return (
-      <div className="Person">
+      <div>
         <p onClick={this.props.click}>
           I m a Person! having name {this.props.name} and age {this.props.age}
         </p>
@@ -25,7 +26,7 @@ class Person extends Component {
   }
 }
 
-export default Person;
+export default withClasses(Person, css.Person);
 
 // App:
 //   Persons:
