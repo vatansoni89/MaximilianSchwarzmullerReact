@@ -1,0 +1,12 @@
+import React from "react";
+const withClasses = (WrappedComponent, className) => {
+  return (
+    props // Its mean return by default, should be used when small section need to be returned.
+  ) => (
+    <div className={className}>
+      <WrappedComponent />
+    </div>
+  );
+};
+
+export default withClasses;

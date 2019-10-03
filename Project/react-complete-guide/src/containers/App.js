@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import classess from "./App.css";
 import Cockpit from "../components/Cockpit/Cockpit";
-import WithClasses from "../hoc/WithClass";
+import WithClasses from "../hoc/withClasses";
 import Persons from "../components/Persons/Persons";
+import withClasses from "../hoc/withClasses";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -92,7 +93,7 @@ class App extends Component {
     //console.log("Am i running before componentWillUnmount"); //yes
 
     return (
-      <WithClasses classes="App">
+      <div className="App">
         <button onClick={() => this.setState({ showCockpit: false })}>
           Remove Cockpit
         </button>
@@ -104,9 +105,9 @@ class App extends Component {
           />
         ) : null}
         {persons}
-      </WithClasses>
+      </div>
     );
   }
 }
 
-export default App;
+export default withClasses(App, classess.App);
