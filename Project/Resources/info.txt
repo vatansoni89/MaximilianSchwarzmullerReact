@@ -181,3 +181,6 @@ React:
   Optimization:
     - for class component > shouldComponentUpdate(nextProps, nextState)
     - for fun component > React.memo(cockpit)
+
+-------------------HOC--------------------------------------------------
+
