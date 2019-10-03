@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import css from "./Person.css";
 import withClasses from "../../../hoc/withClasses";
+import PropTypes from "prop-types";
 
 //give lower case for fun variable.
 class Person extends Component {
@@ -25,6 +26,13 @@ class Person extends Component {
     );
   }
 }
+
+Person.propTypes = {
+  click: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  changed: PropTypes.func
+};
 
 export default withClasses(Person, css.Person);
 

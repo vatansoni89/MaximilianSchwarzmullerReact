@@ -184,3 +184,14 @@ React:
 
 -------------------HOC--------------------------------------------------
 
+----------PropTypes-----------------------------------------------------
+PropTypes:
+  Install:
+    npm install --save prop-types
+    import PropTypes from "prop-types";
+  Use:  
+    Make sure variable type and required function.
+
+----------------------contextType--------------------------------------------------    
+   Need to Revisit:
+     112, 113
